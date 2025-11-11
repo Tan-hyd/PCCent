@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCCent - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-page">
+    <div class="login-container">
+        <h1 class="logo">PCCent</h1>
+        <h2>Event Management System</h2>
+
+        <form id="loginForm">
+            <div id="errorMessage" class="error-message" style="display:none;"></div>
+
+            <div class="input-group">
+                <label for="username">Username/Email</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn primary">LOG IN</button>
+        </form>
+
+        <p class="auth-note">Use your pre-registered account to access</p>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if (localStorage.getItem('currentUser')) {
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+
+</html>
