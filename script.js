@@ -1,6 +1,6 @@
 const PCCentApp = (function () {
     // initial acc
-    localStorage.clear()
+    //localStorage.clear()
     const initialUsers = [
         { id: 'deanGo', pass: 'pcc123', name: 'Ronald Go', email: 'dean@pcc.edu', role: 'dean' },
         { id: 'gsu', pass: 'pcc123', name: 'GSU Account', email: 'gsu@pcc.edu', role: 'gsu' },
@@ -1328,3 +1328,4 @@ Sincerely,
 
 
 })();
+
