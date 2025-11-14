@@ -257,6 +257,37 @@ const PCCentApp = (function () {
         });
     };
 
+    /**
+     * @param {string} inputId The ID of the search <input type="text"> element.
+     * @param {string} containerClass The class selector of the container(s) holding the event cards (e.g., '.event-list').
+     */
+
+    const attachEventListFilter = (inputId, containerClass) => {
+        const searchInput = document.getElementById(inputId);
+        const eventContainers = document.querySelectorAll(containerClass);
+
+        if (!searchInput || eventContainers.length === 0) return;
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.trim().toLowerCase();
+            
+            eventContainers.forEach(container => {
+                const eventCards = container.querySelectorAll('.event-card'); 
+                
+                eventCards.forEach(card => {
+                    const eventNameElement = card.querySelector('h4');
+                    const eventName = eventNameElement ? eventNameElement.textContent.toLowerCase() : '';
+                    
+                    if (eventName.includes(searchTerm)) {
+                        card.style.display = ''; 
+                    } else {
+                        card.style.display = 'none'; 
+                    }
+                });
+            });
+        });
+    };
+
     const loadView = (view) => {
         const user = getCurrentUser();
         if (!user) return handleLogout();
@@ -304,9 +335,11 @@ const PCCentApp = (function () {
         let content = `
             <div class="content-section">
                 <div class="content-card">
-                    
                     </div>
                     <h3>All Upcoming Events</h3>
+                    <div class="input-group search-bar" style="margin-bottom: 25px;">
+                        <input type="text" id="eventSearchInput" placeholder="Search for event name..." style="padding: 10px;">
+                    </div>
                     ${upcomingEvents.length > 0 ? `<div class="event-list">` : `<p>No upcoming events currently approved or pending final approval.</p>`}
                     ${upcomingEvents.map(e => `
                         <div class="event-card">
@@ -1331,6 +1364,7 @@ Sincerely,
 
 
 })();
+
 
 
 
