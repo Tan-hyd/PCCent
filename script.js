@@ -257,6 +257,35 @@ const PCCentApp = (function () {
         });
     };
 
+    @param {String}
+    @param {String}
+
+    const attachEventListener = (inputId, containerClass) => {
+        const searchInput = document.getElementById('inputId');
+        const eventContainers = document.getElementById('containerClass');
+
+        if (!searchInput || eventContainer === 0) return;
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.trim().toLowerCase();
+            
+            eventContainers.forEach(container => {
+                const eventCards = container.querySelectorAll('.event-card');
+
+                eventCards.forEach(card => {
+                    const eventNameElement = card.querySelector('h3');
+                    const eventName = eventNameElement ? eventNameElement.textContent.toLowerCase() : '';
+
+                    if (eventName.includes(searchTerm)){
+                        card.style.display = '';
+                    } else {
+                        card.style.display = none;
+                    }
+                });
+            });
+        });
+    }
+
     const loadView = (view) => {
         const user = getCurrentUser();
         if (!user) return handleLogout();
@@ -304,6 +333,9 @@ const PCCentApp = (function () {
         let content = `
             <div class="content-section">
                 <div class="content-card">
+                    <div class="input-group search-bar">
+                        <input type="text" id="eventSearchInput" placeholder="Search for event name...">
+                    </div>
                     <h3>All Upcoming Events</h3>
                     ${upcomingEvents.length > 0 ? `<div class="event-list">` : `<p>No upcoming events currently approved or pending final approval.</p>`}
                     ${upcomingEvents.map(e => `
@@ -497,6 +529,7 @@ const PCCentApp = (function () {
             </div>
         `;
         renderContent(content);
+        attachEventListFilter('eventSearchInput', '.events-list');
 
         // setup form logic
         const form = document.getElementById('eventRequestForm');
@@ -1328,4 +1361,5 @@ Sincerely,
 
 
 })();
+
 
