@@ -304,8 +304,7 @@ const PCCentApp = (function () {
         let content = `
             <div class="content-section">
                 <div class="content-card">
-                    <div class="input-group search-bar">
-                        <input type="text" id="eventSearchInput" placeholder="Search for event name...">
+                    
                     </div>
                     <h3>All Upcoming Events</h3>
                     ${upcomingEvents.length > 0 ? `<div class="event-list">` : `<p>No upcoming events currently approved or pending final approval.</p>`}
@@ -1332,6 +1331,7 @@ Sincerely,
 
 
 })();
+
 
 
 
