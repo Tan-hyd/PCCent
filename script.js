@@ -257,35 +257,6 @@ const PCCentApp = (function () {
         });
     };
 
-    @param {String}
-    @param {String}
-
-    const attachEventListener = (inputId, containerClass) => {
-        const searchInput = document.getElementById('inputId');
-        const eventContainers = document.getElementById('containerClass');
-
-        if (!searchInput || eventContainer === 0) return;
-
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.trim().toLowerCase();
-            
-            eventContainers.forEach(container => {
-                const eventCards = container.querySelectorAll('.event-card');
-
-                eventCards.forEach(card => {
-                    const eventNameElement = card.querySelector('h3');
-                    const eventName = eventNameElement ? eventNameElement.textContent.toLowerCase() : '';
-
-                    if (eventName.includes(searchTerm)){
-                        card.style.display = '';
-                    } else {
-                        card.style.display = none;
-                    }
-                });
-            });
-        });
-    }
-
     const loadView = (view) => {
         const user = getCurrentUser();
         if (!user) return handleLogout();
@@ -354,7 +325,6 @@ const PCCentApp = (function () {
             </div>
         `;
         renderContent(content);
-        attachEventListFilter('eventSearchInput', '.events-list');
     };
 
     const renderProfile = (user) => {
@@ -1362,6 +1332,7 @@ Sincerely,
 
 
 })();
+
 
 
 
