@@ -357,6 +357,7 @@ const PCCentApp = (function () {
             </div>
         `;
         renderContent(content);
+        attachEventListFilter('eventSearchInput', '.event-list');
     };
 
     const renderProfile = (user) => {
@@ -1364,6 +1365,7 @@ Sincerely,
 
 
 })();
+
 
 
 
