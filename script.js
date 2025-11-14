@@ -335,7 +335,6 @@ const PCCentApp = (function () {
         let content = `
             <div class="content-section">
                 <div class="content-card">
-                    </div>
                     <h3>All Upcoming Events</h3>
                     <div class="input-group search-bar" style="margin-bottom: 25px;">
                         <input type="text" id="eventSearchInput" placeholder="Search for event name..." style="padding: 10px;">
@@ -1365,6 +1364,7 @@ Sincerely,
 
 
 })();
+
 
 
 
