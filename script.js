@@ -354,6 +354,7 @@ const PCCentApp = (function () {
             </div>
         `;
         renderContent(content);
+        attachEventListFilter('eventSearchInput', '.events-list');
     };
 
     const renderProfile = (user) => {
@@ -529,7 +530,7 @@ const PCCentApp = (function () {
             </div>
         `;
         renderContent(content);
-        attachEventListFilter('eventSearchInput', '.events-list');
+        
 
         // setup form logic
         const form = document.getElementById('eventRequestForm');
@@ -1361,5 +1362,6 @@ Sincerely,
 
 
 })();
+
 
 
